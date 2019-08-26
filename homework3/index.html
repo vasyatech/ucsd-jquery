@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+   
+    <head>
+        <meta charset="UTF-8">
+        <title>Dom Manipulation Demo</title>
+        <style>
+            body {
+              background-color: lightblue;
+            }
+        </style>
+    </head>
+    <body>
+    <!––
+        Instructions: On https://mm214.com/passwords.php, you have some usernames and passwords in JSON format. Create a log in and password protect the two pages, protectme1 and protectme2 based on the values in the JSON feed. I left some ambiguity here, so have at itm and good luck! -->
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous">
+        </script>
+        <script type="text/javascript">
+            function set_page_elements() {
+                //alert("set");
+                if (localStorage.getItem("auth") == "T"){
+                    $("#login-form").remove();
+                    var link1 = $("<a />", {
+                        id : "link1",
+                        href : "protectme1.html",
+                        text : "Secret link #1"
+                    });
+                    var link2 = $("<a />", {
+                        id : "link2",
+                        href : "protectme2.html",
+                        text : "Secret link #2"
+                    });
+                    $("#secret-links").append("<h1>Classified information:</h1>");
+                    $("#secret-links").append(link1);
+                    $("#secret-links").append("<br>");
+                    $("#secret-links").append(link2);
+                }
+                else{
+                    $('#login-form').append($('#login-form'));
+                }                
+            } 
+            function sign_in() {
+                //alert( "clicked" );
+                var inputUserName = $("#username").val();
+                var inputPassword = $("#password").val();
+                console.log("inputUserName:"+inputUserName);
+                console.log("inputPassword:"+inputPassword);
+
+                $.getJSON("passwords.json", function(result){
+                    $.each(result, function(usr, pwd){
+                        if (usr == inputUserName && pwd == inputPassword){
+                            //alert("match");
+                            localStorage.setItem("auth", "T");
+                            set_page_elements();
+                            return false;
+                        }
+                    });
+                    
+                    if (localStorage.getItem("auth") != "T"){
+                        alert("Invalid user or password");
+                    }
+                });  
+            }
+                           
+            $( document ).ready(function() {
+                set_page_elements();
+                                
+                
+                $( "#button" ).on( "click", sign_in );      
+                
+            })
+        </script> 
+            <form id="login-form"> 
+                <br>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" required><br>
+                <label for="pasword">Password:</label><br>
+                <input type="password" id="password" required><br><br>
+                <input type="button" id="button" value="Sign In">            
+            </form>  
+            <div id="secret-links">
+
+            </div>   
+    </body>
+</html>

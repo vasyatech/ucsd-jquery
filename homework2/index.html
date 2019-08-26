@@ -1,0 +1,126 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+ <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+<header>
+  <h1>Happy Burger</h1>
+</header>
+<section id="menu">
+  <h2>Menu</h2>
+  <section id="menu-burgers">
+    <h3>Burgers</h3>
+    <ul id="burger-list">
+      <li>
+        <h4>The Original</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+      </li>
+      <li>
+        <h4>Chicken Burger</h4>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit</p>
+      </li>
+      <li>
+        <h4>Veggie Burger</h4>
+        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+      </li>
+      <li>
+        <h4>The Beast</h4>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </li>
+    </ul>
+    <article id="toppings">
+      <ul id="toppings-list">
+        <li>Cheddar</li>
+        <li>Swiss</li>
+        <li>Pepper Jack</li>
+        <li>Grilled Onions</li>
+        <li>Jalapeños</li>
+        <li>Mushrooms</li>
+      </ul>
+    </article>
+  </section>
+  <section id="menu-sides">
+    <h3>Sides</h3>
+    <ul id="sides-list">
+      <li>
+        <h4>Fries</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+      </li>
+      <li>
+        <h4>Tater Tots</h4>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit</p>
+      </li>
+      <li>
+        <h4>Onion Rings</h4>
+        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+      </li>
+      <li>
+        <h4>Slaw</h4>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </li>
+    </ul>
+  </section>
+</section>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+ <script type="text/javascript">
+$( document ).ready(function() {
+  $(init);
+
+function init() {
+  applyStyles();
+}
+
+function applyStyles() {
+  $("body").css("font-family", "Arial, Helvetica, sans-serif")
+    .css("color", "#333333")
+    .css("padding", "10px")    
+    .css("width", "450");
+  
+  //Add Classes to elements from CSS
+  $("header h1").addClass("header-logo");
+  $("#menu h2").addClass("h2-menu");
+    
+  //Style the different headers
+  $(".h2-menu").css("text-align", "center")
+    .css({
+        width: "100%",
+        display: "block",
+        borderBottom: "2px dashed black"});
+  $("#menu").css("background-color", "#f6e6a4")
+    .css("padding", "20px");
+  //$(".header-menu").css("color", "red");
+  
+  //Style the lists (burgers, sides and toppings)  
+  //hint: you may need to use :odd in one or more of your selectors
+    $("li").css("list-style", "none");
+    $("#burger-list li").css("padding-left", "10px").css("padding-right", "10px");
+    $("#burger-list li:odd").css({
+        textAlign: "right",
+        background: "#dbc78c",
+        color: "#5f4806"        
+    });
+
+    $("#menu-sides li").css("padding-left", "10px").css("padding-right", "10px");
+    $("#menu-sides li:odd").css({
+        textAlign: "right",
+        background: "#dbc78c",
+        color: "#5f4806"        
+    });
+    $("#toppings-list li").css("text-align", "center")
+      .css("text-transform", "uppercase");
+  
+}
+	
+ })
+</script> 
+  
+</body>
+</html>

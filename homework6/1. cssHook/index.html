@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style type="text/css">
+#element {
+  background:#ff0000;
+  width:185px;
+  height:40px;
+}
+
+#another {
+  background:#0000ff;
+  width:185px;
+  height:40px;
+}
+</style>
+</head>
+
+<body>
+<button id="buttonOne" class = "btn">Button1</button>
+<button id="buttonTwo" class = "btn">Button2</button>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+ <script type="text/javascript">
+$( document ).ready(function() {
+	(function( $ ) {
+ 
+if ( !$.cssHooks ) {
+  throw( new Error( "jQuery 1.4.3+ is needed for this plugin to work" ) );
+}
+ 
+function styleSupport( prop ) {
+  var vendorProp, supportedProp,
+    capProp = prop.charAt( 0 ).toUpperCase() + prop.slice( 1 ),
+    prefixes = [ "Moz", "Webkit", "O", "ms" ],
+    div = document.createElement( "div" );
+ 
+  if ( prop in div.style ) {
+    supportedProp = prop;
+  } else {
+    for ( var i = 0; i < prefixes.length; i++ ) {
+      vendorProp = prefixes[ i ] + capProp;
+      if ( vendorProp in div.style ) {
+        supportedProp = vendorProp;
+        break;
+      }
+    }
+  }
+ 
+  div = null;
+  $.support[ prop ] = supportedProp;
+  return supportedProp;
+}
+ 
+
+    var background = styleSupport( "background" );
+    var backgroundImage = styleSupport( "background-image" );
+    var borderRadius = styleSupport( "border-radius" );
+    var fontFamily = styleSupport( "font-family" );
+    var color = styleSupport( "color" );
+    var fontSize = styleSupport( "font-size" );
+    var padding = styleSupport( "padding" );
+    var textDecoration = styleSupport( "text-decoration" );
+
+    if ( background && background !== "background" ) {
+      $.cssHooks.background = {
+        get: function( elem, computed, extra ) {
+          return $.css( elem, background );
+        },
+        set: function( elem, value) {
+          elem.style[ background ] = value;
+        }
+      };
+    }
+
+    if ( backgroundImage && backgroundImage !== "background-image" ) {
+      $.cssHooks.backgroundImage = {
+        get: function( elem, computed, extra ) {
+          return $.css( elem, borderRadius );
+        },
+        set: function( elem, value) {
+          elem.style[ backgroundImage ] = value;
+        }
+      };
+    }
+
+    // Set cssHooks only for browsers that support a vendor-prefixed border radius
+    if ( borderRadius && borderRadius !== "border-radius" ) {
+      $.cssHooks.borderRadius = {
+        get: function( elem, computed, extra ) {
+          return $.css( elem, borderRadius );
+        },
+        set: function( elem, value) {
+          elem.style[ borderRadius ] = value;
+        }
+      };
+    }
+
+    if ( background && background !== "background" ) {
+      $.cssHooks.background = {
+        get: function( elem, computed, extra ) {
+          return $.css( elem, background );
+        },
+        set: function( elem, value) {
+          elem.style[ background ] = value;
+        }
+      };
+    }
+
+    if ( fontFamily && fontFamily !== "font-family" ) {
+      $.cssHooks.fontFamily = {
+        get: function( elem, computed, extra ) {
+          return $.css( elem, fontFamily );
+        },
+        set: function( elem, value) {
+          elem.style[ fontFamily ] = value;
+        }
+      };
+    }
+
+    if ( color && color !== "color" ) {
+      $.cssHooks.color = {
+        get: function( elem, computed, extra ) {
+          return $.css( elem, color );
+        },
+        set: function( elem, value) {
+          elem.style[ color ] = value;
+        }
+      };
+    }
+
+    if ( fontSize && fontSize !== "font-size" ) {
+      $.cssHooks.fontSize = {
+        get: function( elem, computed, extra ) {
+          return $.css( elem, fontSize );
+        },
+        set: function( elem, value) {
+          elem.style[ fontSize ] = value;
+        }
+      };
+    }
+
+    if ( padding && padding !== "padding" ) {
+      $.cssHooks.padding = {
+        get: function( elem, computed, extra ) {
+          return $.css( elem, padding );
+        },
+        set: function( elem, value) {
+          elem.style[ padding ] = value;
+        }
+      };
+    }
+        
+    if ( textDecoration && textDecoration !== "text-decoration" ) {
+      $.cssHooks.textDecoration = {
+        get: function( elem, computed, extra ) {
+          return $.css( elem, textDecoration );
+        },
+        set: function( elem, value) {
+          elem.style[ textDecoration ] = value;
+        }
+      };
+    }
+        
+})( jQuery );
+    
+    $( "#buttonOne" ).css( "background", "#3498db" );
+    $( "#buttonTwo" ).css( "background", "#3498db" );
+    $( "#buttonOne" ).css( "background-image", "linear-gradient(to bottom, #3498db, #2980b9)" );
+    $( "#buttonTwo" ).css( "backgroundImage", "linear-gradient(to bottom, #3498db, #2980b9)" );
+    $( "#buttonOne" ).css( "border-radius", "28px" );
+    $( "#buttonTwo" ).css( "borderRadius", "28px" );
+    $( "#buttonOne" ).css( "font-family", "Arial" );
+    $( "#buttonTwo" ).css( "fontFamily", "Arial" );
+    $( "#buttonOne" ).css( "color", "#ffffff" );
+    $( "#buttonTwo" ).css( "color", "#ffffff" );
+    $( "#buttonOne" ).css( "font-size", "20px" );
+    $( "#buttonTwo" ).css( "fontSize", "20px" );
+    $( "#buttonOne" ).css( "padding", "10px 20px 10px 20px" );
+    $( "#buttonTwo" ).css( "padding", "10px 20px 10px 20px" );
+    $( "#buttonOne" ).css( "text-decoration", "none" );
+    $( "#buttonTwo" ).css( "textDecoration", "none" );
+
+    $( "#buttonOne" ).hover(
+        function(){
+            $(this).css("background", "#3cb0fd");
+            $(this).css("background-image", "linear-gradient(to bottom, #3cb0fd, #3498db)");
+            $(this).css("text-decoration", "underline");
+        },
+        function(){
+            $(this).css("background", "#3498db");
+            $(this).css("background-image", "linear-gradient(to bottom, #3498db, #2980b9)");
+            $(this).css("text-decoration", "none");
+        }   
+    );
+    
+    $( "#buttonTwo" ).hover(
+        function(){
+            $(this).css("background", "#3cb0fd");
+            $(this).css("backgroundImage", "linear-gradient(to bottom, #3cb0fd, #3498db)");
+            $(this).css("textDecoration", "underline");
+        },
+        function(){
+            $(this).css("background", "#3498db");
+            $(this).css("backgroundImage", "linear-gradient(to bottom, #3498db, #2980b9)");
+            $(this).css("textDecoration", "none");
+        }   
+    );
+	 
+})
+</script> 
+  
+</body>
+</html>

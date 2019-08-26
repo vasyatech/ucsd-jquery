@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+ <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+<div id="app">
+ Your job is to add each element to your shopping list. I've added the event listener.
+ Then, I want to you to use jQuery to make the list items red and Arial text
+  <h1>Shopping List</h1>
+  <ul id="shopping-list">
+  </ul>
+
+  <div>
+    <input type="text" id="item-input">
+    <button id="add-btn">Add Item</button>
+  </div>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+ <script type="text/javascript">
+$( document ).ready(function() {
+	$( "#add-btn" ).on( "click", function() {
+      //when this button is clicked, you will append what the user entered in the text field to your list. Then you will style it by making the font-family Arial and the color red.
+        $('#shopping-list').append('<li>'+$('#item-input').val()+'</li>');
+        $('#shopping-list li').css("color", "red");
+        $('#shopping-list li').css("font-family", "Arial");
+	  	
+	 
+	});
+ })
+</script> 
+  
+</body>
+</html>

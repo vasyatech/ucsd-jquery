@@ -1,0 +1,114 @@
+body{    
+    width: auto;    
+}
+li {
+  width: 4em;
+  height: 4em;
+  text-align: center;
+  line-height: 4em;
+  border-radius: 2em;
+  background: blue;
+  margin: 0 2em;
+  display: inline-block;
+  color: white;
+  position: relative;
+  font-weight: bold;    
+}
+
+li::before{
+  content: '';
+  position: absolute;
+  top: 1.8em;
+  left: -8em;
+  width: 8em;
+  height: .4em;
+  background: blue;
+  z-index: -1;
+}
+
+
+li:first-child::before {
+  display: none;
+}
+
+#btnBlockOut{
+  overflow:auto;    
+}
+
+#btnBlockInt{
+    float:right;    
+    margin-right: 40px;
+}
+
+.active {
+  background: blue;
+}
+
+.active ~ li {
+  background: lightblue;
+}
+
+.active ~ li::before {
+  background: lightblue;
+}
+
+#formBorder{
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.section, .lastSection {
+    display: none;
+}
+
+button{
+    padding: 7px;
+    
+}
+
+#registrationForm{
+    margin: 0 auto;
+    width: 500px;
+}
+
+h3 {
+    text-align: center;
+}
+
+textarea, input:not(#chbox) {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    width: 360px;
+    height: 2em;
+    border: 2px solid lightblue;
+}
+
+input.invalid,  textarea.invalid {
+  background-color: lightpink;
+}
+
+textarea {
+    height: 6em;
+}
+
+#chbox {
+   margin-left: 50px; 
+   width: 1.5em;  
+   height: 1.5em;
+}
+
+#thankyoubox {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 320px;
+    height: 20em;
+    border: 2px solid lightblue;
+}
+
+.err{
+    color: red;
+    margin-left: 50px;
+}

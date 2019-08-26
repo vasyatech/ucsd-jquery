@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery Midterm</title>
+        <style>
+            body {
+              font-family:sans-serif;
+            }
+
+            #numpad {
+              background-color:#444;
+              border-radius:10px;
+              margin:20px;
+              padding:20px;
+              width:241px;
+            }
+
+            #numscreen {
+              width:216px;
+              height:40px;
+              border-radius:8px;
+              padding:10px;
+              margin:3px;
+              background-color:lightgreen;
+              color:#222;
+              font-weight:bold;
+              font-size:1.2em;
+              text-align:right;
+
+            }
+
+            #scr-top{
+                min-height:1px;
+                display: inline-block;
+                font-size:0.7em;
+            }
+            #src-btm{
+                min-height:1px;
+                display: inline-block;
+                font-size:1.2em;
+            }
+
+        .num {
+          width:30px;
+          height:25px;
+          display:inline-block;
+          background-color:#ddd;
+          padding:15px 10px 10px 10px;
+          margin:5px 3px;
+          text-align:center;
+          border-radius:8px;
+          cursor:pointer;
+        }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div id="numpad">
+          <div id="numscreen">
+              <div id="scr-top"></div>
+              <div id="scr-btm">0</div>
+          </div>
+          <div class="numrow">
+            <div id="num-1" class="num">1</div>
+            <div id="num-2" class="num">2</div>
+            <div id="num-3" class="num">3</div>
+            <div id="plus" class="num">+</div>
+
+          </div>
+          <div class="numrow">
+            <div id="num-4" class="num">4</div>
+            <div id="num-5" class="num">5</div>
+            <div id="num-6" class="num">6</div>
+                <div id="minus" class="num">-</div>
+
+          </div>
+          <div class="numrow">
+            <div id="num-7" class="num">7</div>
+            <div id="num-8" class="num">8</div>
+            <div id="num-9" class="num">9</div>
+            <div id="multiply" class="num">*</div>
+
+          </div>
+          <div class="numrow">
+            <div id="num-c" class="num">C</div>
+            <div id="num-0" class="num">0</div>
+            <div id="num-e" class="num">=</div>
+            <div id="divide" class="num">/</div>
+          </div>
+          
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.js"
+          integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+          crossorigin="anonymous"></script>
+         <script type="text/javascript">
+        //PEBKAC Problem exists between keyboard and chair
+
+
+        
+        $(document).ready(function() {
+            var sum, x, y = 0.00;
+            var cntOp = 0;
+            var flagOp = false;
+            var lastBtn = 'C';
+            var lastOp = '';
+            
+            var setBtm = function() {
+                if($("#scr-btm").text() == '0' || flagOp == true){   
+                    $("#scr-btm").empty();
+                    flagOp = false;
+                }
+            }
+
+            var setXY = function() {
+                if (cntOp <= 2){
+                    x = y;
+                    y = $("#scr-btm").text();
+                }
+                else {
+                    x = sum;
+                    y = $("#scr-btm").text();                    
+                }
+                //console.log("x="+x+" y="+y);   
+            }
+            
+            var calcBtm = function(op){
+                //console.log("op="+op);
+                //console.log("cntOp="+cntOp);
+                setXY();
+                if (op != ""){
+                    if (cntOp > 1 || lastBtn == '='){
+                        sum = eval(x + op + y);
+                        //console.log("x="+x+" y="+y); 
+                        //console.log(sum);
+                    }
+                    return sum;                    
+                }
+            }
+
+            $("#num-0").on("click",function(event){
+                if ($("#scr-btm").text != "0"){
+                    setBtm();
+                    $("#scr-btm").append($("#num-0").text());
+                }
+                lastBtn = $("#num-0").text();
+            })
+
+            $("#num-1").on("click",function(event){
+                setBtm();
+                $("#scr-btm").append($("#num-1").text());
+                lastBtn = $("#num-1").text();
+            })
+            
+            $("#num-2").on("click",function(event){
+                setBtm();
+                $("#scr-btm").append($("#num-2").text());
+                lastBtn = $("#num-2").text();
+            })
+            
+            $("#num-3").on("click",function(event){
+                setBtm();
+                $("#scr-btm").append($("#num-3").text());
+                lastBtn = $("#num-3").text();
+            })
+            
+            $("#num-4").on("click",function(event){
+                setBtm();
+                $("#scr-btm").append($("#num-4").text());
+                lastBtn = $("#num-4").text();
+            })
+            
+            $("#num-5").on("click",function(event){
+                setBtm();
+                $("#scr-btm").append($("#num-5").text());
+                lastBtn = $("#num-5").text();
+            })
+            
+            $("#num-6").on("click",function(event){
+                setBtm();
+                $("#scr-btm").append($("#num-6").text());
+                lastBtn = $("#num-6").text();
+            })
+            
+            $("#num-7").on("click",function(event){
+                setBtm();
+                $("#scr-btm").append($("#num-7").text());
+                lastBtn = $("#num-7").text();
+            })
+            
+            $("#num-8").on("click",function(event){
+                setBtm();
+                $("#scr-btm").append($("#num-8").text());
+                lastBtn = $("#num-8").text();
+            })
+            
+            $("#num-9").on("click",function(event){
+                setBtm();
+                $("#scr-btm").append($("#num-9").text());
+                lastBtn = $("#num-9").text();
+            })
+            
+            $("#plus").on("click",function(event){
+                //alert(flagOp);
+                if (!flagOp){
+                    if (lastBtn != $("#plus").text()){
+                        cntOp++;
+                        flagOp = true;
+                        $("#scr-top").append($("#scr-btm").text()).append($("#plus").text());
+                        calcBtm(lastOp);
+                        if (cntOp > 1)
+                            $("#scr-btm").empty().append(sum);                    
+                    }   
+                }
+                else {
+                    flagOp = true;
+                    $('#scr-top').text(function (_,txt) {
+                        return txt.slice(0, -1);
+                    });
+                    $("#scr-top").append($("#plus").text());  
+                }
+                lastBtn = $("#plus").text();
+                lastOp = $("#plus").text();
+            })
+
+            $("#minus").on("click",function(event){
+                if (!flagOp){
+                    if (lastBtn != $("#minus").text()){
+                        cntOp++;
+                        flagOp = true;
+                        $("#scr-top").append($("#scr-btm").text()).append($("#minus").text());
+                        calcBtm(lastOp);
+                        if (cntOp > 1)
+                            $("#scr-btm").empty().append(sum);                    
+                    }   
+                }
+                else {
+                    flagOp = true;
+                    $('#scr-top').text(function (_,txt) {
+                        return txt.slice(0, -1);
+                    });
+                    $("#scr-top").append($("#minus").text());  
+                }
+                lastBtn = $("#minus").text();
+                lastOp = $("#minus").text();
+                //console.log(lastBtn);
+            })
+
+            $("#multiply").on("click",function(event){
+                if (!flagOp){
+                    if (lastBtn != $("#multiply").text()){
+                        cntOp++;
+                        flagOp = true;
+                        $("#scr-top").append($("#scr-btm").text()).append($("#multiply").text());
+                        calcBtm(lastOp);
+                        if (cntOp > 1)
+                            $("#scr-btm").empty().append(sum);                    
+                    }   
+                }
+                else {
+                    flagOp = true;
+                    $('#scr-top').text(function (_,txt) {
+                        return txt.slice(0, -1);
+                    });
+                    $("#scr-top").append($("#multiply").text());  
+                }
+                lastBtn = $("#multiply").text();
+                lastOp = $("#multiply").text();
+            })
+
+            $("#divide").on("click",function(event){
+                if (!flagOp){
+                    if (lastBtn != $("#divide").text()){
+                        cntOp++;
+                        flagOp = true;
+                        $("#scr-top").append($("#scr-btm").text()).append($("#divide").text());
+                        calcBtm(lastOp);
+                        if (cntOp > 1)
+                            $("#scr-btm").empty().append(sum);                    
+                    }   
+                }
+                else {
+                    flagOp = true;
+                    $('#scr-top').text(function (_,txt) {
+                        return txt.slice(0, -1);
+                    });
+                    $("#scr-top").append($("#divide").text());  
+                    
+                }
+                lastBtn = $("#divide").text();
+                lastOp = $("#divide").text();
+            })
+
+
+            $("#num-e").on("click",function(event){
+                lastBtn = '=';
+                calcBtm(lastOp);
+                $("#scr-btm").empty().append(sum);  
+                $("#scr-top").text('');   
+                x = 0.00;
+                y = sum;
+                cntOp = 1;
+                lastOp = '';
+                lastBtn = '';
+                flagOp = false;
+            })
+             
+            $("#num-c").on("click",function(event){
+                $("#scr-btm").text('0');
+                $("#scr-top").text('');
+                sum = 0.00;
+                x = 0.00;
+                y = 0.00;
+                cntOp = 0;
+                lastOp = '';
+                flagOp = false;
+                lastBtn = 'C';
+            })            
+
+           })
+        </script> 
+    </body
+</html>

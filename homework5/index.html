@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+       <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <link href="my.css" rel="stylesheet" type="text/css">        
+        <script src="my.js"></script>        
+    </head>
+    <body>
+        <form id="registrationForm" action="#">       
+           <div id="formBorder">
+                <ul>
+                  <li class="active">1</li>
+                  <li>2</li>
+                  <li>3</li>
+                </ul>         
+                <div class="section">
+                    <h3>CREATE YOUR ACCOUNT</h3>
+                    <input class="input" id="email" name="email" placeholder="Email" type="email"><br>
+                    <input class="input" id="password" name="password" placeholder="Password" type="password"><br>
+                    <input class="input" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" type="password"><br>
+                </div>
+                
+                <div class="section">
+                   <h3>ADD YOUR PERSONAL INFO</h3>
+                   <input class="input" id="fname" name="fname" placeholder="First name" type="text"><br>
+                   <input class="input" id="lname" name="lname" placeholder="Last name" type="text"><br>
+                   <input class="input" id="phone" name="phone" placeholder="Phone number" type="text"><br>
+                   <textarea class="input" form ="registrationForm" id="address" name="address" placeholder="Address"></textarea><br>
+                </div>
+                
+                <div class="section">
+                   <h3></h3>
+                   <input class="input" id="username" name="username" placeholder="Username" type="text"><br>
+                   <textarea class="input" form ="registrationForm" id="bio" name="bio" placeholder="Bio"></textarea><br>
+                   <div style="font-size: 20px; margin-bottom:20px;">
+                       <input class="input" type="checkbox" id="chbox" name="agreecheckbox" value="agree"> I agree to the terms of service<br>
+                   </div>
+                </div>        
+                
+                <div class="lastSection">
+                    <h3>Thank You for signing up!</h3>
+                    <div id="thankyoubox">
+                        
+                    </div>
+                </div>
+                <div id="btnBlockOut">
+                    <div id="btnBlockInt">
+                        <button type="button" id="prevBtn">Previous</button>
+                        <button type="button" id="nextBtn">Next</button>
+                    </div>
+                </div>        
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+.header-logo {
+  text-align:center;
+  color:#938335;
+  text-transform:uppercase;
+}
+
+.menu-container {
+  width:400px;
+  margin:0 auto;
+  padding:20px;
+  background-color:#f2e7a2;
+}
+
+.toppings {
+  margin:20px;
+  text-align:center;
+  text-transform:uppercase;
+  font-size:10px;
+}
